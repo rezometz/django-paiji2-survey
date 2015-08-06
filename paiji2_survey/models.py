@@ -1,9 +1,15 @@
 from django.db import models
 from django.utils.translation import ugettext as _
 from django.utils.timezone import now
-from django.contrib.auth import get_user_model
 
 from HTMLParser import HTMLParser
+
+
+try:
+    from django.contrib.auth import get_user_model
+    User = get_user_model()
+except:
+    from django.contrib.auth.models import User
 
 
 class MLStripper(HTMLParser):
@@ -111,7 +117,7 @@ class Vote(models.Model):
     )
 
     user = models.ForeignKey(
-        get_user_model(),
+        User,
         verbose_name=_('user'),
         related_name='votes',
     )
