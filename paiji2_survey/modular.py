@@ -4,6 +4,7 @@ from modular_blocks import ModuleApp, TemplateTagBlock, modules
 
 from . import urls
 
+
 class SurveyModule(ModuleApp):
     app_name = 'survey'
     name = 'survey'

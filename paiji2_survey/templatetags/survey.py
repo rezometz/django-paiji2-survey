@@ -8,6 +8,7 @@ from graphos.sources.model import ModelDataSource
 from ..models import Poll
 from ..forms import SurveyVoteForm
 
+
 register = template.Library()
 
 
@@ -17,7 +18,10 @@ register = template.Library()
 )
 def display_poll_chart(context, poll, choices=None):
     choices = poll.choices.annotate(nb_votes=Count('votes__user'))
-    data_source = ModelDataSource(choices, fields=['stripped_value', 'nb_votes'])
+    data_source = ModelDataSource(choices, fields=[
+        'stripped_value',
+        'nb_votes'
+    ])
     chart = morris.DonutChart(data_source, width=250, height=250, options={
         'title': _('Votes'),
     })

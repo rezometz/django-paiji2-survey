@@ -73,7 +73,6 @@ class Poll(models.Model):
 
 
 class Choice(models.Model):
-    
     class Meta:
         verbose_name = _('choice')
         verbose_name_plural = _('choices')
@@ -116,4 +115,3 @@ class Vote(models.Model):
         verbose_name=_('user'),
         related_name='votes',
     )
-

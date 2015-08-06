@@ -30,6 +30,7 @@ class SurveyVoteView(generic.CreateView):
         next = self.request.META.get('HTTP_REFERER', None) or reverse('index')
         return next
 
+
 class SurveyListView(generic.ListView):
     model = Poll
     paginate_by = 8
