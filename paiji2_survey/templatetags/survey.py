@@ -13,7 +13,7 @@ register = template.Library()
 
 
 @register.inclusion_tag(
-    'survey/chart.html',
+    'paiji2_survey/chart.html',
     takes_context=True,
 )
 def display_poll_chart(context, poll, choices=None):
@@ -33,7 +33,7 @@ def display_poll_chart(context, poll, choices=None):
 
 
 @register.inclusion_tag(
-    'survey/form.html',
+    'paiji2_survey/form.html',
     takes_context=True,
 )
 def display_survey_form(context):
