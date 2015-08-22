@@ -13,24 +13,6 @@ except:
     User = settings.AUTH_USER_MODEL
 
 
-class MLStripper(HTMLParser):
-    def __init__(self):
-        self.reset()
-        self.fed = []
-
-    def handle_data(self, d):
-        self.fed.append(d)
-
-    def get_data(self):
-        return ''.join(self.fed)
-
-
-def strip_tags(html):
-    s = MLStripper()
-    s.feed(html)
-    return s.get_data()
-
-
 class PollManager(models.Manager):
     def current(self):
         try:
@@ -95,11 +77,11 @@ class Choice(models.Model):
         max_length=255,
     )
 
+    def stripped_value(self):
+        return self.value.strip()
+
     def __unicode__(self):
         return self.value
-
-    def stripped_value(self):
-        return strip_tags(self.value)
 
 
 class Vote(models.Model):
