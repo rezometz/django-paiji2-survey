@@ -22,6 +22,9 @@ setup(
     include_package_data=True,
     description='A simple survey app',
     long_description=README,
+    install_requires=[
+        'django-graphos',
+    ],
     url='https://github.com/rezometz/django-paiji2-survey',
     author='Supelec Rezo Metz',
     author_email='paiji-dev@rezometz.org',
