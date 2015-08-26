@@ -24,6 +24,7 @@ setup(
     long_description=README,
     install_requires=[
         'django-graphos',
+        'django-bootstrap3>=6',
     ],
     url='https://github.com/rezometz/django-paiji2-survey',
     author='Supelec Rezo Metz',
